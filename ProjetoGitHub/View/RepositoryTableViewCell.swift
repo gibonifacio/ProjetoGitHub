@@ -9,7 +9,9 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
     
+    static let identifier = "RepositoryCell"
     var repository: Repository
+    
     
     init(repository: Repository, style: UITableViewCell.CellStyle = .default, reuseIdentifier: String? = nil) {
         self.repository = repository
@@ -26,14 +28,12 @@ class RepositoryTableViewCell: UITableViewCell {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textColor = .black
-        title.text = "teste"
         return title
     }()
     
     let bodyLabel: UILabel = {
         let body = UILabel()
         body.translatesAutoresizingMaskIntoConstraints = false
-        body.text = "teste"
         body.numberOfLines = 2
         return body
     }()
@@ -41,14 +41,12 @@ class RepositoryTableViewCell: UITableViewCell {
     let forksLabel: UILabel = {
         let forks = UILabel()
         forks.translatesAutoresizingMaskIntoConstraints = false
-        forks.text = "10"
         return forks
     }()
     
     let starsLabel: UILabel = {
         let stars = UILabel()
         stars.translatesAutoresizingMaskIntoConstraints = false
-        stars.text = "200"
         return stars
     }()
     
@@ -64,15 +62,11 @@ class RepositoryTableViewCell: UITableViewCell {
         return username
     }()
     
-    var nameLabel: UILabel {
-        let name = UILabel()
-        name.translatesAutoresizingMaskIntoConstraints = false
-        return name
-    }
-    
     
     
     func setElements() {
+        
+        setValuesRepository()
         self.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -110,9 +104,23 @@ class RepositoryTableViewCell: UITableViewCell {
             image.heightAnchor.constraint(equalToConstant: 30),
             image.widthAnchor.constraint(equalToConstant: 30)
         ])
-        self.addSubview(usernameLabel)
-        self.addSubview(nameLabel)
         
+        self.addSubview(usernameLabel)
+        NSLayoutConstraint.activate([
+            usernameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
+            usernameLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
+        ])
+        
+
+        
+    }
+    
+    func setValuesRepository() {
+        titleLabel.text = repository.name
+        bodyLabel.text = repository.description
+        forksLabel.text = String(repository.forks_count)
+        starsLabel.text = String(repository.stargazers_count)
+        usernameLabel.text = repository.login
     }
 }
 
