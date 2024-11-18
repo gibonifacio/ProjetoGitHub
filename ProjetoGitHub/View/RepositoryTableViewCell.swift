@@ -10,19 +10,8 @@ import UIKit
 class RepositoryTableViewCell: UITableViewCell {
     
     static let identifier = "RepositoryCell"
-    var repository: Repository
     
-    
-    init(repository: Repository, style: UITableViewCell.CellStyle = .default, reuseIdentifier: String? = nil) {
-        self.repository = repository
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setElements()
 
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     let titleLabel: UILabel = {
         let title = UILabel()
@@ -62,11 +51,19 @@ class RepositoryTableViewCell: UITableViewCell {
         return username
     }()
     
+    func configureCell(name: String, login: String, avatar_url: String, description: String, stargazers_count: Int, forks_count: Int) {
+
+        self.titleLabel.text = name
+        self.usernameLabel.text = login
+        self.bodyLabel.text = description
+        self.starsLabel.text = String(stargazers_count)
+        self.forksLabel.text = String(forks_count)
+        setElements()
+    }
     
     
     func setElements() {
         
-        setValuesRepository()
         self.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -115,17 +112,11 @@ class RepositoryTableViewCell: UITableViewCell {
         
     }
     
-    func setValuesRepository() {
-        titleLabel.text = repository.name
-        bodyLabel.text = repository.description
-        forksLabel.text = String(repository.forks_count)
-        starsLabel.text = String(repository.stargazers_count)
-        usernameLabel.text = repository.login
-    }
+
 }
 
 
-@available(iOS 17.0, *)
-#Preview {
-    return RepositoryTableViewCell(repository: Repository(id: 12, name: "aaaaa", login: "aaaaa", avatar_url: "aaaa", description: "aaaaa", stargazers_count: 12, forks_count: 10))
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    return RepositoryTableViewCell(repository: Repository(id: 12, name: "aaaaa", login: "aaaaa", avatar_url: "aaaa", description: "aaaaa", stargazers_count: 12, forks_count: 10))
+//}

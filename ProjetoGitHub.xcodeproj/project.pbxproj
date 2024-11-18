@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA778E6E2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */; };
+		FA778E702CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */; };
 		FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53672CEAB70F000158D1 /* AppDelegate.swift */; };
 		FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */; };
 		FAAF536C2CEAB70F000158D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF536B2CEAB70F000158D1 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewDelegate.swift; sourceTree = "<group>"; };
+		FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewDataSource.swift; sourceTree = "<group>"; };
 		FAAF53642CEAB70F000158D1 /* ProjetoGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF53672CEAB70F000158D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA778E6C2CEBAEB2002A7BB1 /* Protocolos */ = {
+			isa = PBXGroup;
+			children = (
+				FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */,
+				FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */,
+			);
+			path = Protocolos;
+			sourceTree = "<group>";
+		};
 		FAAF535B2CEAB70F000158D1 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 				FAAF53672CEAB70F000158D1 /* AppDelegate.swift */,
 				FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */,
 				FAAF536B2CEAB70F000158D1 /* ViewController.swift */,
+				FA778E6C2CEBAEB2002A7BB1 /* Protocolos */,
 				FAAF53992CEAB898000158D1 /* View */,
 				FAAF53982CEAB884000158D1 /* ViewModel */,
 				FAAF53972CEAB864000158D1 /* Model */,
@@ -287,9 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA778E6E2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift in Sources */,
 				FAAF536C2CEAB70F000158D1 /* ViewController.swift in Sources */,
 				FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */,
 				FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */,
+				FA778E702CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift in Sources */,
 				FAAF539F2CEB76B3000158D1 /* RepositoryTableViewCell.swift in Sources */,
 				FAAF539D2CEB743D000158D1 /* PullRequest.swift in Sources */,
 				FAAF539B2CEAB8E0000158D1 /* Repository.swift in Sources */,
