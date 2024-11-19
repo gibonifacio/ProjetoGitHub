@@ -7,7 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
+    
+    func didSelectRepository(item: Item) {
+        let pullRequestsViewController = PullRequestsViewController(item: item)
+        navigationController?.pushViewController(pullRequestsViewController, animated: true)
+        
+    }
+    
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -22,7 +29,7 @@ class ViewController: UIViewController {
     var tableViewDataSource: RepositoryTableViewDataSource?
     var repositoryViewModel: RepositoryViewModel = RepositoryViewModel()
     
-    var repository: Repository?
+    var gitHubAPI: GitHubAPI?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +41,7 @@ class ViewController: UIViewController {
         
         tableViewDelegate = RepositoryTableViewDelegate()
         tableView.delegate = tableViewDelegate
+        tableViewDelegate?.repositoryCellDelegate = self
         
         setTableView()
                 
@@ -44,16 +52,19 @@ class ViewController: UIViewController {
     }
     
     
+    
     func fetchRepositoryData() async {
         do {
             let data = try await repositoryViewModel.getRepositoryData()
             DispatchQueue.main.async {
-                self.repository = data
+                self.gitHubAPI = data
                 self.tableView.reloadData()
                 
-                if let repository = self.repository {
-                    self.tableViewDataSource = RepositoryTableViewDataSource(repository: repository)
+                if let gitHubAPI = self.gitHubAPI {
+                    self.tableViewDataSource = RepositoryTableViewDataSource(gitHubAPI: gitHubAPI)
                     self.tableView.dataSource = self.tableViewDataSource
+                    self.tableViewDelegate?.gitHubAPI = gitHubAPI
+
 
                 }
                 
@@ -91,6 +102,6 @@ class ViewController: UIViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    return ViewController()
+    return RepositoriesViewController()
 }
 

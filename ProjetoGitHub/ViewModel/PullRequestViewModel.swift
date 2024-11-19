@@ -1,20 +1,18 @@
 //
-//  RepositoryViewModel.swift
+//  PullRequestViewModel.swift
 //  ProjetoGitHub
 //
-//  Created by Giovanna Bonifacho on 18/11/24.
+//  Created by Giovanna Bonifacho on 19/11/24.
 //
 
 import Foundation
 
-class RepositoryViewModel {
+class PullRequestViewModel {
     
-    @MainActor func getRepositoryData() async throws -> GitHubAPI {
-        let urlString = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1"
+    @MainActor func getPullRequestsData(item: Item) async throws -> [PullRequest] {
+        let urlString = "https://api.github.com/repos/\(item.owner.login)/\(item.name)/pulls"
         
         guard let url = URL(string: urlString) else { throw GitHubError.invalidURL }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
         
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
@@ -23,7 +21,7 @@ class RepositoryViewModel {
             }
             do {
                 let decoder = JSONDecoder()
-                let decode =  try decoder.decode(GitHubAPI.self, from: data)
+                let decode = try decoder.decode([PullRequest].self, from: data)
                 print(decode)
                 return decode
             } catch {
@@ -31,17 +29,11 @@ class RepositoryViewModel {
                 throw GitHubError.invalidData
             }
         } catch {
-            print("Error de request")
+            print(error.localizedDescription)
             throw GitHubError.requestError
         }
+        
     }
     
-}
-
-
-enum GitHubError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
-    case requestError
+    
 }

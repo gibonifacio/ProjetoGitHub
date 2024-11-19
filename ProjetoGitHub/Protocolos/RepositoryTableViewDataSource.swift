@@ -9,14 +9,14 @@ import UIKit
 
 class RepositoryTableViewDataSource: NSObject, UITableViewDataSource {
     
-    var repository: Repository?
+    var gitHubAPI: GitHubAPI?
 
-    init(repository: Repository) {
-        self.repository = repository
+    init(gitHubAPI: GitHubAPI) {
+        self.gitHubAPI = gitHubAPI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.repository?.items.count ?? 1
+        return self.gitHubAPI?.items.count ?? 1
     }
     
     
@@ -26,7 +26,7 @@ class RepositoryTableViewDataSource: NSObject, UITableViewDataSource {
             fatalError("failed")
         }
         
-        let repository = self.repository?.items[indexPath.row]
+        let repository = self.gitHubAPI?.items[indexPath.row]
         if let repository = repository {
             cell.configureCell(name: repository.name, login: repository.owner.login, avatarUrl: repository.owner.avatar_url, description: repository.description, stargazersCount: repository.stargazers_count, forksCount: repository.forks_count)
         }
