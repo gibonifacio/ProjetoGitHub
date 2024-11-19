@@ -10,13 +10,13 @@ import Foundation
 struct PullRequest: Codable {
         
     let title: String
-    let body: String
-    let created_at: Date
+    let body: String? 
+    let created_at: String
     let user: User
     
 }
 
 struct User: Codable {
     let login: String
-    let avatarURL: String
+    let avatar_url: String
 }

@@ -22,7 +22,7 @@ class PullRequestTableViewDataSource: NSObject, UITableViewDataSource {
         
         let pullRequest = self.pullRequests?[indexPath.row]
         if let pullRequest = pullRequest {
-            cell.configureCell(title: pullRequest.title, body: pullRequest.body, created_at: pullRequest.body, login: pullRequest.user.login, avatarURL: pullRequest.user.avatarURL)
+            cell.configureCell(title: pullRequest.title, body: pullRequest.body ?? "Não possui body", created_at: pullRequest.created_at, login: pullRequest.user.login, avatarURL: pullRequest.user.avatar_url)
         }
         
         return cell
