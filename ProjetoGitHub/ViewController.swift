@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     
     var tableViewDelegate: RepositoryTableViewDelegate?
     var tableViewDataSource: RepositoryTableViewDataSource?
+    var repositoryViewModel: RepositoryViewModel = RepositoryViewModel()
     
-    var repositories: [Repository] =  [Repository(id: 12, name: "aaaa", login: "bbbb", avatar_url: "cccc", description: "dddd", stargazers_count: 33, forks_count: 60), Repository(id: 12, name: "xxxx", login: "zzzz", avatar_url: "yyyy", description: "wwww", stargazers_count: 78, forks_count: 12) ]
+    var repository: Repository?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,48 @@ class ViewController: UIViewController {
         self.title = "GitHub"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
         tableViewDelegate = RepositoryTableViewDelegate()
-        tableViewDataSource = RepositoryTableViewDataSource(repositories: repositories)
         tableView.delegate = tableViewDelegate
-        tableView.dataSource = tableViewDataSource
         
         setTableView()
+                
+        Task {
+            await fetchRepositoryData()
+            
+        }
+    }
+    
+    
+    func fetchRepositoryData() async {
+        do {
+            let data = try await repositoryViewModel.getRepositoryData()
+            DispatchQueue.main.async {
+                self.repository = data
+                self.tableView.reloadData()
+                
+                if let repository = self.repository {
+                    self.tableViewDataSource = RepositoryTableViewDataSource(repository: repository)
+                    self.tableView.dataSource = self.tableViewDataSource
+
+                }
+                
+            }
+            
+        } catch GitHubError.invalidData {
+            print("Error type data")
+        } catch GitHubError.invalidResponse {
+            print("Error type response")
+        } catch GitHubError.invalidURL {
+            print("Error type url")
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         
     }
+    
+
     
     func setTableView() {
         self.view.addSubview(tableView)

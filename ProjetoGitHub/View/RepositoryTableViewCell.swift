@@ -51,13 +51,13 @@ class RepositoryTableViewCell: UITableViewCell {
         return username
     }()
     
-    func configureCell(name: String, login: String, avatar_url: String, description: String, stargazers_count: Int, forks_count: Int) {
+    func configureCell(name: String, login: String, avatarUrl: String, description: String, stargazersCount: Int, forksCount: Int) {
 
         self.titleLabel.text = name
         self.usernameLabel.text = login
         self.bodyLabel.text = description
-        self.starsLabel.text = String(stargazers_count)
-        self.forksLabel.text = String(forks_count)
+        self.starsLabel.text = String(stargazersCount)
+        self.forksLabel.text = String(forksCount)
         setElements()
     }
     

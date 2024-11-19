@@ -9,7 +9,15 @@ import UIKit
 
 class RepositoryTableViewDelegate: NSObject, UITableViewDelegate {
     
-//    var repositories: [Repository]?
+    var repository: Repository?
+    
+    init(repository: Repository? = nil) {
+        self.repository = repository
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
 
 }

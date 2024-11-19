@@ -9,14 +9,14 @@ import UIKit
 
 class RepositoryTableViewDataSource: NSObject, UITableViewDataSource {
     
-    var repositories: [Repository]?
-    
-    init(repositories: [Repository]) {
-        self.repositories = repositories
+    var repository: Repository?
+
+    init(repository: Repository) {
+        self.repository = repository
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.repositories?.count ?? 0
+        return self.repository?.items.count ?? 1
     }
     
     
@@ -26,10 +26,11 @@ class RepositoryTableViewDataSource: NSObject, UITableViewDataSource {
             fatalError("failed")
         }
         
-        let repository = self.repositories?[indexPath.row]
-        cell.configureCell(name: repository!.name, login: repository?.login ?? "a", avatar_url: repository?.avatar_url ?? "b", description: repository?.description ?? "c", stargazers_count: repository?.stargazers_count ?? 1, forks_count: repository?.forks_count ?? 2)
-        
-        
+        let repository = self.repository?.items[indexPath.row]
+        if let repository = repository {
+            cell.configureCell(name: repository.name, login: repository.owner.login, avatarUrl: repository.owner.avatar_url, description: repository.description, stargazersCount: repository.stargazers_count, forksCount: repository.forks_count)
+        }
+
         return cell
         
     }
