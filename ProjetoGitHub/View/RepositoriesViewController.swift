@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  ProjetoGitHub
 //
@@ -19,7 +18,6 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.identifier)
-        tableView.backgroundColor = .red
         tableView.showsVerticalScrollIndicator = false
         
         return tableView
@@ -42,6 +40,13 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
         tableViewDelegate = RepositoryTableViewDelegate()
         tableView.delegate = tableViewDelegate
         tableViewDelegate?.repositoryCellDelegate = self
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        tableView.separatorStyle = .none
+        
+        
+
+//        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
         
         setTableView()
                 
@@ -88,20 +93,22 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     func setTableView() {
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30)
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
 
 
 }
 
+
 @available(iOS 17.0, *)
 #Preview {
     return RepositoriesViewController()
 }
-

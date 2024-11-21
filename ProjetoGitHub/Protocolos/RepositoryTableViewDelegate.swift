@@ -19,8 +19,9 @@ class RepositoryTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 150
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let gitHubAPI = gitHubAPI {
@@ -31,6 +32,8 @@ class RepositoryTableViewDelegate: NSObject, UITableViewDelegate {
         
         
     }
+    
+
     
 
 }

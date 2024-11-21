@@ -11,12 +11,25 @@ class RepositoryTableViewCell: UITableViewCell {
     
     static let identifier = "RepositoryCell"
     
+    let view: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowRadius = 4
+        view.layer.shadowOffset = .zero
+        view.layer.cornerRadius = 12
 
+        return view
+    }()
     
     let titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.textColor = .black
+        title.textColor = UIColor(named: "dark-purple")
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return title
     }()
     
@@ -51,6 +64,22 @@ class RepositoryTableViewCell: UITableViewCell {
         return username
     }()
     
+    let forkImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "tuningfork")
+        image.tintColor = UIColor(named: "dark-purple")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    let starsImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "star.fill")
+        image.tintColor = UIColor(named: "dark-purple")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     func configureCell(name: String, login: String, avatarUrl: String, description: String, stargazersCount: Int, forksCount: Int) {
 
         self.titleLabel.text = name
@@ -63,54 +92,79 @@ class RepositoryTableViewCell: UITableViewCell {
     
     
     func setElements() {
-        
-        self.addSubview(titleLabel)
-        
+        self.addSubview(view)
+
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25)
-            
+            view.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12)
         ])
-        
-        self.addSubview(bodyLabel)
-        
+
+        // Adicionar o título
+        view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            bodyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
-        
-        
-        self.addSubview(forksLabel)
-        
+
+        // Adicionar o corpo da descrição
+        view.addSubview(bodyLabel)
         NSLayoutConstraint.activate([
-            forksLabel.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 10),
-            forksLabel.leadingAnchor.constraint(equalTo: bodyLabel.leadingAnchor)
+            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            bodyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            bodyLabel.widthAnchor.constraint(equalToConstant: 220)
         ])
-        
-        self.addSubview(starsLabel)
-        
+
+        // Adicionar imagem de forks e label correspondente
+        view.addSubview(forkImage)
+        forkImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starsLabel.topAnchor.constraint(equalTo: forksLabel.topAnchor),
-            starsLabel.leadingAnchor.constraint(equalTo: forksLabel.leadingAnchor, constant: 30)
+            forkImage.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 10),
+            forkImage.leadingAnchor.constraint(equalTo: bodyLabel.leadingAnchor),
+            forkImage.widthAnchor.constraint(equalToConstant: 16),
+            forkImage.heightAnchor.constraint(equalToConstant: 16)
         ])
-        
-        self.addSubview(image)
-        
+
+        view.addSubview(forksLabel)
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            forksLabel.centerYAnchor.constraint(equalTo: forkImage.centerYAnchor),
+            forksLabel.leadingAnchor.constraint(equalTo: forkImage.trailingAnchor, constant: 8)
+        ])
+
+        // Adicionar imagem de stars e label correspondente
+        view.addSubview(starsImage)
+        starsImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            starsImage.centerYAnchor.constraint(equalTo: forkImage.centerYAnchor),
+            starsImage.leadingAnchor.constraint(equalTo: forksLabel.trailingAnchor, constant: 20),
+            starsImage.widthAnchor.constraint(equalToConstant: 16),
+            starsImage.heightAnchor.constraint(equalToConstant: 16)
+        ])
+
+        view.addSubview(starsLabel)
+        NSLayoutConstraint.activate([
+            starsLabel.centerYAnchor.constraint(equalTo: starsImage.centerYAnchor),
+            starsLabel.leadingAnchor.constraint(equalTo: starsImage.trailingAnchor, constant: 8)
+        ])
+
+        // Adicionar imagem e username
+        view.addSubview(image)
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             image.heightAnchor.constraint(equalToConstant: 30),
             image.widthAnchor.constraint(equalToConstant: 30)
         ])
-        
-        self.addSubview(usernameLabel)
-        NSLayoutConstraint.activate([
-            usernameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
-            usernameLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
-        ])
-        
 
-        
+        view.addSubview(usernameLabel)
+        NSLayoutConstraint.activate([
+            usernameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 8),
+            usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+
     }
+
     
 
 }
