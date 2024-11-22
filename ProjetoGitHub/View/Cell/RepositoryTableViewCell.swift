@@ -121,12 +121,20 @@ class RepositoryTableViewCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
+        
+        view.addSubview(image)
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            image.heightAnchor.constraint(equalToConstant: 50),
+            image.widthAnchor.constraint(equalToConstant: 50)
+        ])
 
         view.addSubview(bodyLabel)
         NSLayoutConstraint.activate([
             bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             bodyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            bodyLabel.widthAnchor.constraint(equalToConstant: 220)
+            bodyLabel.trailingAnchor.constraint(equalTo: image.leadingAnchor, constant: -12)
         ])
 
         view.addSubview(forkImage)
@@ -158,13 +166,6 @@ class RepositoryTableViewCell: UITableViewCell {
             starsLabel.leadingAnchor.constraint(equalTo: starsImage.trailingAnchor, constant: 8)
         ])
 
-        view.addSubview(image)
-        NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
-            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            image.heightAnchor.constraint(equalToConstant: 50),
-            image.widthAnchor.constraint(equalToConstant: 50)
-        ])
 
         view.addSubview(usernameLabel)
         NSLayoutConstraint.activate([

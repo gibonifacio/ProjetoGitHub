@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class PullRequestTableViewCell: UITableViewCell {
     
@@ -16,32 +17,39 @@ class PullRequestTableViewCell: UITableViewCell {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textColor = UIColor(named: "dark-purple")
-        title.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        title.numberOfLines = 0
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return title
     }()
     
     let bodyLabel: UILabel = {
         let body = UILabel()
         body.translatesAutoresizingMaskIntoConstraints = false
-        body.numberOfLines = 2
+        body.numberOfLines = 0
+        body.font = UIFont.systemFont(ofSize: 16)
         return body
     }()
 
     let image: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "heart")
+        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let usernameLabel: UILabel = {
         let username = UILabel()
         username.translatesAutoresizingMaskIntoConstraints = false
+        username.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        username.textColor = UIColor(named: "light-purple")
         return username
     }()
     
     var dateLabel: UILabel = {
         let date = UILabel()
         date.translatesAutoresizingMaskIntoConstraints = false
+        date.font = UIFont.systemFont(ofSize: 14)
+        date.textColor = .gray
         return date
     }()
     
@@ -49,8 +57,21 @@ class PullRequestTableViewCell: UITableViewCell {
 
         self.titleLabel.text = title
         self.usernameLabel.text = login
-        self.bodyLabel.text = body
-        self.dateLabel.text = created_at
+        
+        if body == ""{
+            self.bodyLabel.text = "Não possui body"
+        } else {
+            self.bodyLabel.text = body
+        }
+    
+        
+        self.dateLabel.text = convertDate(dateToConvert: created_at)
+        
+        if let url = URL(string: avatarURL) {
+            self.image.kf.setImage(with: url)
+        } else {
+            print("URL inválida: \(avatarURL)")
+        }
 
         setElements()
     }
@@ -58,46 +79,68 @@ class PullRequestTableViewCell: UITableViewCell {
     
     func setElements() {
         
-        self.addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25)
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12)
             
         ])
         
-        self.addSubview(bodyLabel)
+        
+        
+        contentView.addSubview(bodyLabel)
         
         NSLayoutConstraint.activate([
-            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            bodyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            bodyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            bodyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
         ])
-        
-        
-        self.addSubview(dateLabel)
-        
-        NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 10),
-            dateLabel.leadingAnchor.constraint(equalTo: bodyLabel.leadingAnchor)
-        ])
-        
-        
-        self.addSubview(image)
-        
-        NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: titleLabel.topAnchor),
-            image.heightAnchor.constraint(equalToConstant: 30),
-            image.widthAnchor.constraint(equalToConstant: 30)
-        ])
-        
-        self.addSubview(usernameLabel)
-        NSLayoutConstraint.activate([
-            usernameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
-            usernameLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
-        ])
-        
+
 
         
+        
+        
+        contentView.addSubview(image)
+        
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 10),
+            image.heightAnchor.constraint(equalToConstant: 50),
+            image.widthAnchor.constraint(equalToConstant: 50),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        ])
+        
+        contentView.addSubview(usernameLabel)
+        NSLayoutConstraint.activate([
+            usernameLabel.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 14),
+            usernameLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 12),
+        ])
+        
+        contentView.addSubview(dateLabel)
+        
+        NSLayoutConstraint.activate([
+            dateLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 4),
+            dateLabel.leadingAnchor.constraint(equalTo: usernameLabel.leadingAnchor)
+        ])
+        
+    
+        
+    }
+    
+    func convertDate(dateToConvert: String) -> String{
+        let formatter = ISO8601DateFormatter()
+        
+
+        if let date = formatter.date(from: dateToConvert) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let formattedDate = formatter.string(from: date)
+            return formattedDate
+        }
+        
+        return ""
     }
     
 }

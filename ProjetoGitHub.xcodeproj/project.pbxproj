@@ -119,8 +119,8 @@
 		FA778E7D2CECE8DE002A7BB1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FA778E792CECE765002A7BB1 /* PullRequestTableViewCell.swift */,
 				FAAF539E2CEB76B3000158D1 /* RepositoryTableViewCell.swift */,
+				FA778E792CECE765002A7BB1 /* PullRequestTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -150,10 +150,10 @@
 			children = (
 				FAAF53672CEAB70F000158D1 /* AppDelegate.swift */,
 				FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */,
-				FA778E6C2CEBAEB2002A7BB1 /* Protocolos */,
 				FAAF53992CEAB898000158D1 /* View */,
 				FAAF53982CEAB884000158D1 /* ViewModel */,
 				FAAF53972CEAB864000158D1 /* Model */,
+				FA778E6C2CEBAEB2002A7BB1 /* Protocolos */,
 				FAAF53702CEAB710000158D1 /* Assets.xcassets */,
 				FAAF53752CEAB710000158D1 /* Info.plist */,
 				FAAF53722CEAB710000158D1 /* LaunchScreen.storyboard */,

@@ -28,8 +28,7 @@ class PullRequestsViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PullRequestTableViewCell.self, forCellReuseIdentifier: PullRequestTableViewCell.identifier)
-        tableView.backgroundColor = .red
-        tableView.showsVerticalScrollIndicator = false
+
         
         return tableView
     }()
@@ -82,10 +81,10 @@ class PullRequestsViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30)
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
     
