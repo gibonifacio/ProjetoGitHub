@@ -18,12 +18,37 @@ final class ProjetoGitHubTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGetRepositoryData() async throws {
+        
+        let viewModel = RepositoryViewModel()
+        try await Task.sleep(nanoseconds: 4_000_000_000)
+        Task {
+            do {
+                let repository = try await viewModel.getRepositoryData()
+                //print(repository)
+            } catch {
+                
+                print("aaaaa")
+            }
+        }
+    }
+    
+    func testGetPullRequestsData() async throws {
+        let pullRequestViewModel = PullRequestViewModel()
+        try await Task.sleep(nanoseconds: 20_000_000_000)
+        print("antes antes")
+        Task {
+            do {
+                print("antes")
+                let pullRequests = try await pullRequestViewModel.getPullRequestsData(item: Item(owner: Owner(login: "Alamofire", avatar_url: "Alamofire"), forks_count: 1, name: "Alamofire", stargazers_count: 2, description: "Alamofire"))
+                print(pullRequests)
+                print("foi")
+            } catch {
+                print(error.localizedDescription)
+                print("nao foi")
+
+            }
+        }
     }
 
     func testPerformanceExample() throws {

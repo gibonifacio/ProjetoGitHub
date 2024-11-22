@@ -8,12 +8,15 @@
 import Foundation
 
 struct PullRequest: Codable {
-    
-    let id: Int
+        
     let title: String
-    let body: String
+    let body: String? 
     let created_at: String
+    let user: User
+    
+}
+
+struct User: Codable {
     let login: String
     let avatar_url: String
-    
 }
