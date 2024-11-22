@@ -56,6 +56,11 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
     
     
     func fetchRepositoryData() async {

@@ -30,7 +30,6 @@ class RepositoryTableViewDataSource: NSObject, UITableViewDataSource {
         if let repository = repository {
             cell.configureCell(name: repository.name, login: repository.owner.login, avatarUrl: repository.owner.avatar_url, description: repository.description, stargazersCount: repository.stargazers_count, forksCount: repository.forks_count)
         }
-
         return cell
         
     }

@@ -15,7 +15,8 @@ class PullRequestTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.textColor = .black
+        title.textColor = UIColor(named: "dark-purple")
+        title.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return title
     }()
     
