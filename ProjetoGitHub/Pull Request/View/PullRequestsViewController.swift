@@ -79,7 +79,7 @@ class PullRequestsViewController: UIViewController {
                     self.isLoading = false
                     self.setTableView()
                 } else {
-                    self.text.text = "This Repository doesn't have any Pull Requests"
+                    self.text.text = "This Repository doesn't have public Pull Requests"
                 }
                 
             }
@@ -100,8 +100,8 @@ class PullRequestsViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }

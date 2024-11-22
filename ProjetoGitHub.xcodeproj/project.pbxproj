@@ -136,6 +136,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		FA2B60192CF127CD0048FEB3 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B60142CF10AE60048FEB3 /* MockRepositoryNetworkService.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		FA778E6C2CEBAEB2002A7BB1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +276,7 @@
 				FA866D092CF0ECF3007F739D /* Pull Request */,
 				FA866D0B2CF0ED8E007F739D /* Service */,
 				FA866D0C2CF0ED96007F739D /* Enum */,
-				FA2B60142CF10AE60048FEB3 /* MockRepositoryNetworkService.swift */,
+				FA2B60192CF127CD0048FEB3 /* Mock */,
 				FAAF53702CEAB710000158D1 /* Assets.xcassets */,
 				FAAF53752CEAB710000158D1 /* Info.plist */,
 				FAAF53722CEAB710000158D1 /* LaunchScreen.storyboard */,
