@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2B600B2CF0FE0A0048FEB3 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B600A2CF0FE0A0048FEB3 /* RepositoryManager.swift */; };
+		FA2B600F2CF0FE380048FEB3 /* PullRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B600E2CF0FE380048FEB3 /* PullRequestManager.swift */; };
+		FA2B60112CF0FF440048FEB3 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B60102CF0FF440048FEB3 /* NetworkServiceProtocol.swift */; };
+		FA2B60162CF10B110048FEB3 /* MockRepositoryNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B60142CF10AE60048FEB3 /* MockRepositoryNetworkService.swift */; };
+		FA2B60182CF10C5A0048FEB3 /* RepositoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B60172CF10C5A0048FEB3 /* RepositoryManagerTests.swift */; };
 		FA778E6E2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */; };
 		FA778E702CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */; };
 		FA778E722CEBB838002A7BB1 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E712CEBB838002A7BB1 /* RepositoryViewModel.swift */; };
@@ -19,11 +24,9 @@
 		FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */; };
 		FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */; };
 		FA866D012CEFC8B7007F739D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA866D002CEFC8B7007F739D /* Kingfisher */; };
-		FA866D032CF0BA81007F739D /* RepositoryNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */; };
 		FA866D0E2CF0EDA2007F739D /* GitHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D0D2CF0EDA2007F739D /* GitHubError.swift */; };
-		FA866D102CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */; };
 		FA866D122CF0EE9D007F739D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D112CF0EE9D007F739D /* User.swift */; };
-		FA866D152CF0EFE1007F739D /* PullRequestNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */; };
+		FA866D152CF0EFE1007F739D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D142CF0EFE1007F739D /* NetworkService.swift */; };
 		FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53672CEAB70F000158D1 /* AppDelegate.swift */; };
 		FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */; };
 		FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF536B2CEAB70F000158D1 /* RepositoriesViewController.swift */; };
@@ -55,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA2B600A2CF0FE0A0048FEB3 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		FA2B600E2CF0FE380048FEB3 /* PullRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestManager.swift; sourceTree = "<group>"; };
+		FA2B60102CF0FF440048FEB3 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		FA2B60142CF10AE60048FEB3 /* MockRepositoryNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepositoryNetworkService.swift; sourceTree = "<group>"; };
+		FA2B60172CF10C5A0048FEB3 /* RepositoryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManagerTests.swift; sourceTree = "<group>"; };
 		FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewDelegate.swift; sourceTree = "<group>"; };
 		FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA778E712CEBB838002A7BB1 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
@@ -66,11 +74,9 @@
 		FA778E7E2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDelegate.swift; sourceTree = "<group>"; };
 		FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellDelegate.swift; sourceTree = "<group>"; };
-		FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryNetworkService.swift; sourceTree = "<group>"; };
 		FA866D0D2CF0EDA2007F739D /* GitHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubError.swift; sourceTree = "<group>"; };
-		FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		FA866D112CF0EE9D007F739D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestNetworkService.swift; sourceTree = "<group>"; };
+		FA866D142CF0EFE1007F739D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FAAF53642CEAB70F000158D1 /* ProjetoGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF53672CEAB70F000158D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2B60092CF0FDF30048FEB3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B600A2CF0FE0A0048FEB3 /* RepositoryManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FA2B60132CF1005D0048FEB3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B600E2CF0FE380048FEB3 /* PullRequestManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		FA778E6C2CEBAEB2002A7BB1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +156,10 @@
 		FA866D042CF0EC4D007F739D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				FA866D0A2CF0ED2A007F739D /* ViewModel */,
 				FA866D072CF0EC90007F739D /* Model */,
 				FA866D052CF0EC61007F739D /* View */,
+				FA866D0A2CF0ED2A007F739D /* ViewModel */,
+				FA2B60092CF0FDF30048FEB3 /* Manager */,
 				FA866D082CF0ECA9007F739D /* Protocols */,
 			);
 			path = Repository;
@@ -182,9 +205,11 @@
 		FA866D092CF0ECF3007F739D /* Pull Request */ = {
 			isa = PBXGroup;
 			children = (
-				FA778E6C2CEBAEB2002A7BB1 /* Protocols */,
 				FAAF53972CEAB864000158D1 /* Model */,
 				FAAF53992CEAB898000158D1 /* View */,
+				FAAF53982CEAB884000158D1 /* ViewModel */,
+				FA2B60132CF1005D0048FEB3 /* Manager */,
+				FA778E6C2CEBAEB2002A7BB1 /* Protocols */,
 			);
 			path = "Pull Request";
 			sourceTree = "<group>";
@@ -192,6 +217,7 @@
 		FA866D0A2CF0ED2A007F739D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FA778E712CEBB838002A7BB1 /* RepositoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -199,8 +225,8 @@
 		FA866D0B2CF0ED8E007F739D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */,
-				FA866D132CF0EFCA007F739D /* Protcols */,
+				FA866D142CF0EFE1007F739D /* NetworkService.swift */,
+				FA2B60102CF0FF440048FEB3 /* NetworkServiceProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -211,15 +237,6 @@
 				FA866D0D2CF0EDA2007F739D /* GitHubError.swift */,
 			);
 			path = Enum;
-			sourceTree = "<group>";
-		};
-		FA866D132CF0EFCA007F739D /* Protcols */ = {
-			isa = PBXGroup;
-			children = (
-				FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */,
-				FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */,
-			);
-			path = Protcols;
 			sourceTree = "<group>";
 		};
 		FAAF535B2CEAB70F000158D1 = {
@@ -248,10 +265,10 @@
 				FAAF53672CEAB70F000158D1 /* AppDelegate.swift */,
 				FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */,
 				FA866D042CF0EC4D007F739D /* Repository */,
-				FAAF53982CEAB884000158D1 /* ViewModel */,
 				FA866D092CF0ECF3007F739D /* Pull Request */,
 				FA866D0B2CF0ED8E007F739D /* Service */,
 				FA866D0C2CF0ED96007F739D /* Enum */,
+				FA2B60142CF10AE60048FEB3 /* MockRepositoryNetworkService.swift */,
 				FAAF53702CEAB710000158D1 /* Assets.xcassets */,
 				FAAF53752CEAB710000158D1 /* Info.plist */,
 				FAAF53722CEAB710000158D1 /* LaunchScreen.storyboard */,
@@ -263,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAF537E2CEAB710000158D1 /* ProjetoGitHubTests.swift */,
+				FA2B60172CF10C5A0048FEB3 /* RepositoryManagerTests.swift */,
 			);
 			path = ProjetoGitHubTests;
 			sourceTree = "<group>";
@@ -288,7 +306,6 @@
 		FAAF53982CEAB884000158D1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA778E712CEBB838002A7BB1 /* RepositoryViewModel.swift */,
 				FA778E772CECC81C002A7BB1 /* PullRequestViewModel.swift */,
 			);
 			path = ViewModel;
@@ -445,22 +462,24 @@
 				FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */,
 				FA866D0E2CF0EDA2007F739D /* GitHubError.swift in Sources */,
 				FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */,
-				FA866D032CF0BA81007F739D /* RepositoryNetworkService.swift in Sources */,
 				FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */,
 				FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */,
 				FA778E7F2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift in Sources */,
-				FA866D102CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift in Sources */,
-				FA866D152CF0EFE1007F739D /* PullRequestNetworkService.swift in Sources */,
+				FA866D152CF0EFE1007F739D /* NetworkService.swift in Sources */,
+				FA2B60162CF10B110048FEB3 /* MockRepositoryNetworkService.swift in Sources */,
 				FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */,
 				FA778E702CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift in Sources */,
 				FA778E722CEBB838002A7BB1 /* RepositoryViewModel.swift in Sources */,
 				FA778E782CECC81C002A7BB1 /* PullRequestViewModel.swift in Sources */,
+				FA2B600F2CF0FE380048FEB3 /* PullRequestManager.swift in Sources */,
 				FAAF539F2CEB76B3000158D1 /* RepositoryTableViewCell.swift in Sources */,
 				FA778E762CECC741002A7BB1 /* Owner.swift in Sources */,
 				FAAF539D2CEB743D000158D1 /* PullRequest.swift in Sources */,
 				FA778E7C2CECE8D7002A7BB1 /* PullRequestsViewController.swift in Sources */,
 				FAAF539B2CEAB8E0000158D1 /* GitHubAPI.swift in Sources */,
+				FA2B600B2CF0FE0A0048FEB3 /* RepositoryManager.swift in Sources */,
 				FA866D122CF0EE9D007F739D /* User.swift in Sources */,
+				FA2B60112CF0FF440048FEB3 /* NetworkServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAF537F2CEAB710000158D1 /* ProjetoGitHubTests.swift in Sources */,
+				FA2B60182CF10C5A0048FEB3 /* RepositoryManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

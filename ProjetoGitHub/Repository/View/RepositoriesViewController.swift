@@ -16,8 +16,9 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
         
     }
     
-    init(pullRequestViewModel: PullRequestViewModel) {
+    init(pullRequestViewModel: PullRequestViewModel, repositoryViewModel: RepositoryViewModel) {
         self.pullRequestViewModel = pullRequestViewModel
+        self.repositoryViewModel = repositoryViewModel
         super.init(nibName: nil, bundle: nil)
 
     }
@@ -37,7 +38,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
     var tableViewDelegate: RepositoryTableViewDelegate?
     var tableViewDataSource: RepositoryTableViewDataSource?
-    var repositoryViewModel: RepositoryViewModel = RepositoryViewModel()
+    var repositoryViewModel: RepositoryViewModel
     
     var gitHubAPI: GitHubAPI?
     
@@ -86,7 +87,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
     func fetchRepositoryData() async {
         do {
-            let data = try await repositoryViewModel.getRepositoryData()
+            let data = try await repositoryViewModel.getRepositoriesData()
             DispatchQueue.main.async {
                 self.gitHubAPI = data
                 self.tableView.reloadData()
@@ -102,13 +103,17 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
                 
             }
             
+        } catch GitHubError.invalidURL {
+            self.label.text = "Invalid URL"
+            print("Error type url")
+        } catch GitHubError.invalidResponse {
+            self.label.text = "Invalid Response"
+            print("Error type response")
         } catch GitHubError.invalidData {
             print("Error type data")
-        } catch GitHubError.invalidResponse {
-            print("Error type response")
-        } catch GitHubError.invalidURL {
-            print("Error type url")
+            self.label.text = "Invalid data"
         } catch {
+            self.label.text = "Unknown Error"
             print(error.localizedDescription)
         }
         

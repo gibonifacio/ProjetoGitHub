@@ -20,10 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let pullResquestNetworkService = PullRequestNetworkService()
-        let pullRequestManager = PullRequestManager(pullResquestNetworkSerice: pullResquestNetworkService)
+        
+        
+        let networkService = NetworkService()
+        
+        let repositoryManager = RepositoryManager(repositoryNetworkService: networkService)
+        let repositoryViewModel = RepositoryViewModel(repositoryManager: repositoryManager)
+        
+        
+        let pullRequestManager = PullRequestManager(pullResquestNetworkSerice: networkService)
         let pullRequestViewModel = PullRequestViewModel(pullRequestManager: pullRequestManager)
-        let navigationController = UINavigationController(rootViewController: RepositoriesViewController(pullRequestViewModel: pullRequestViewModel))
+        
+        
+        let navigationController = UINavigationController(rootViewController: RepositoriesViewController(pullRequestViewModel: pullRequestViewModel, repositoryViewModel: repositoryViewModel))
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
