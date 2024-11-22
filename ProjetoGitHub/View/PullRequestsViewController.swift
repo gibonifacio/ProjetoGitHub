@@ -25,33 +25,44 @@ class PullRequestsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let text: UILabel = {
+        let text = UILabel()
+        text.text = "Loading..."
+        text.textColor = .gray
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PullRequestTableViewCell.self, forCellReuseIdentifier: PullRequestTableViewCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
 
         
         return tableView
     }()
     
-//    var tableViewDelegate: 
+    var isLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         self.title = item.name
-        navigationController?.navigationBar.prefersLargeTitles = true
 
         tableViewDelegate = PullRequestTableViewDelegate()
         tableView.delegate = tableViewDelegate
-        setTableView()
         
-        Task {
-            await fetchPullRequests()
-        }
+        setIsLoadingText()
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Task {
+            await fetchPullRequests()
+        }
     }
     
     func fetchPullRequests() async {
@@ -63,6 +74,13 @@ class PullRequestsViewController: UIViewController {
                 self.tableViewDataSource = PullRequestTableViewDataSource()
                 self.tableViewDataSource?.pullRequests = self.pullRequests
                 self.tableView.dataSource = self.tableViewDataSource
+                if data.count > 1 {
+                    self.isLoading = false
+                    self.setTableView()
+                } else {
+                    self.text.text = "This Repository doesn't have any Pull Requests"
+                }
+                
             }
         } catch GitHubError.invalidData{
             print("Error type data")
@@ -78,7 +96,6 @@ class PullRequestsViewController: UIViewController {
 
     func setTableView() {
         self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -87,6 +104,22 @@ class PullRequestsViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+    
+    func setIsLoadingText() {
+        
+        if isLoading {
+            self.view.addSubview(text)
+            
+            NSLayoutConstraint.activate([
+                text.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                text.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            ])
+        } else {
+            text.removeFromSuperview()
+        }
+        
+    }
+
     
     /*
     // MARK: - Navigation

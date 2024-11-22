@@ -28,6 +28,16 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     var repositoryViewModel: RepositoryViewModel = RepositoryViewModel()
     
     var gitHubAPI: GitHubAPI?
+    
+    var isLoading: Bool = true
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Loading..."
+        label.textColor = .gray
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,31 +45,30 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
         self.view.backgroundColor = .white
         self.title = "GitHub"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        setText()
+
         
         tableViewDelegate = RepositoryTableViewDelegate()
         tableView.delegate = tableViewDelegate
         tableViewDelegate?.repositoryCellDelegate = self
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         tableView.separatorStyle = .none
         
         
-
-//        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-
-        
-        setTableView()
                 
-        Task {
-            await fetchRepositoryData()
-            
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
+
+        Task {
+            await fetchRepositoryData()
+
+        }
+        
     }
     
     
@@ -74,7 +83,8 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
                     self.tableViewDataSource = RepositoryTableViewDataSource(gitHubAPI: gitHubAPI)
                     self.tableView.dataSource = self.tableViewDataSource
                     self.tableViewDelegate?.gitHubAPI = gitHubAPI
-
+                    self.setTableView()
+                    self.isLoading = false
 
                 }
                 
@@ -107,6 +117,22 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+        
+
+    }
+    
+    func setText() {
+        
+        if isLoading {
+            label.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(label)
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        } else {
+            self.label.removeFromSuperview()
+        }
     }
 
 
