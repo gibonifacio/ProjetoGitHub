@@ -17,3 +17,5 @@ Nos arquivos RepositoryManager e PullRequestManager, o retorno da função do Ne
 Na minha ViewModel, eu possuo uma função que retorna o resultado da requisição, para ser utilizado na minha View. . Além disso, as Views foram organizadas com pastas para seus respectivos protocolos Delegate e DataSource.
 
 Por fim, criei o Mock que conforma ao NetworkServiceProtocol, e implementei a função para ter um JSONFake para testar a API de Repository. Tive algumas dificuldades em fazer os testes, e por isso, só realizei um teste que faz a injeção de dependência com o mock, e verifica se os dados não são nulos e o valor do nome do usuário. 
+
+Para executar o projeto, você pode clonar a branch da main, e buildar o aplicativo no XCode do seu Macbook :)
