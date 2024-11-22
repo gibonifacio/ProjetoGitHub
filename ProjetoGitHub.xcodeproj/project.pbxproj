@@ -19,6 +19,7 @@
 		FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */; };
 		FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */; };
 		FA866D012CEFC8B7007F739D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA866D002CEFC8B7007F739D /* Kingfisher */; };
+		FA866D032CF0BA81007F739D /* RepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D022CF0BA81007F739D /* RepositoryData.swift */; };
 		FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53672CEAB70F000158D1 /* AppDelegate.swift */; };
 		FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */; };
 		FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF536B2CEAB70F000158D1 /* RepositoriesViewController.swift */; };
@@ -61,6 +62,7 @@
 		FA778E7E2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDelegate.swift; sourceTree = "<group>"; };
 		FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellDelegate.swift; sourceTree = "<group>"; };
+		FA866D022CF0BA81007F739D /* RepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryData.swift; sourceTree = "<group>"; };
 		FAAF53642CEAB70F000158D1 /* ProjetoGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF53672CEAB70F000158D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */,
 				FA778E7E2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift */,
 				FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */,
+				FA866D022CF0BA81007F739D /* RepositoryData.swift */,
 			);
 			path = Protocolos;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				FA778E6E2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift in Sources */,
 				FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */,
 				FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */,
+				FA866D032CF0BA81007F739D /* RepositoryData.swift in Sources */,
 				FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */,
 				FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */,
 				FA778E7F2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 class RepositoryViewModel {
     
-    @MainActor func getRepositoryData() async throws -> GitHubAPI {
+    func getRepositoryData() async throws -> GitHubAPI {
         let urlString = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1"
         
         guard let url = URL(string: urlString) else { throw GitHubError.invalidURL }
