@@ -16,7 +16,4 @@ struct PullRequest: Codable {
     
 }
 
-struct User: Codable {
-    let login: String
-    let avatar_url: String
-}
+

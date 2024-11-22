@@ -10,14 +10,15 @@ import UIKit
 class PullRequestsViewController: UIViewController {
     
     let item: Item
-    let pullRequestViewModel = PullRequestViewModel()
+    let pullRequestViewModel: PullRequestViewModel
     var pullRequests: [PullRequest]?
     
     var tableViewDelegate: PullRequestTableViewDelegate?
     var tableViewDataSource: PullRequestTableViewDataSource?
     
-    init(item: Item) {
+    init(item: Item, pullRequestViewModel: PullRequestViewModel) {
         self.item = item
+        self.pullRequestViewModel = pullRequestViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,7 +68,7 @@ class PullRequestsViewController: UIViewController {
     
     func fetchPullRequests() async {
         do {
-            let data = try await pullRequestViewModel.getPullRequestsData(item: item)
+            let data = try await pullRequestViewModel.getPullRequestData(item: item)
             DispatchQueue.main.async {
                 self.pullRequests = data
                 self.tableView.reloadData()

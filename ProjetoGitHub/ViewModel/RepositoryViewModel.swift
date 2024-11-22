@@ -38,10 +38,3 @@ class RepositoryViewModel {
     
 }
 
-
-enum GitHubError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
-    case requestError
-}

@@ -19,7 +19,11 @@
 		FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */; };
 		FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */; };
 		FA866D012CEFC8B7007F739D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA866D002CEFC8B7007F739D /* Kingfisher */; };
-		FA866D032CF0BA81007F739D /* RepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D022CF0BA81007F739D /* RepositoryData.swift */; };
+		FA866D032CF0BA81007F739D /* RepositoryNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */; };
+		FA866D0E2CF0EDA2007F739D /* GitHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D0D2CF0EDA2007F739D /* GitHubError.swift */; };
+		FA866D102CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */; };
+		FA866D122CF0EE9D007F739D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D112CF0EE9D007F739D /* User.swift */; };
+		FA866D152CF0EFE1007F739D /* PullRequestNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */; };
 		FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53672CEAB70F000158D1 /* AppDelegate.swift */; };
 		FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */; };
 		FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF536B2CEAB70F000158D1 /* RepositoriesViewController.swift */; };
@@ -62,7 +66,11 @@
 		FA778E7E2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewDelegate.swift; sourceTree = "<group>"; };
 		FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellDelegate.swift; sourceTree = "<group>"; };
-		FA866D022CF0BA81007F739D /* RepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryData.swift; sourceTree = "<group>"; };
+		FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryNetworkService.swift; sourceTree = "<group>"; };
+		FA866D0D2CF0EDA2007F739D /* GitHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubError.swift; sourceTree = "<group>"; };
+		FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		FA866D112CF0EE9D007F739D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestNetworkService.swift; sourceTree = "<group>"; };
 		FAAF53642CEAB70F000158D1 /* ProjetoGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF53672CEAB70F000158D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,26 +114,112 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA778E6C2CEBAEB2002A7BB1 /* Protocolos */ = {
+		FA778E6C2CEBAEB2002A7BB1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */,
-				FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */,
-				FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */,
 				FA778E7E2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift */,
 				FA778E802CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift */,
-				FA866D022CF0BA81007F739D /* RepositoryData.swift */,
 			);
-			path = Protocolos;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FA778E7D2CECE8DE002A7BB1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FAAF539E2CEB76B3000158D1 /* RepositoryTableViewCell.swift */,
 				FA778E792CECE765002A7BB1 /* PullRequestTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA866D042CF0EC4D007F739D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA866D0A2CF0ED2A007F739D /* ViewModel */,
+				FA866D072CF0EC90007F739D /* Model */,
+				FA866D052CF0EC61007F739D /* View */,
+				FA866D082CF0ECA9007F739D /* Protocols */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA866D052CF0EC61007F739D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF536B2CEAB70F000158D1 /* RepositoriesViewController.swift */,
+				FA866D062CF0EC6B007F739D /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA866D062CF0EC6B007F739D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF539E2CEB76B3000158D1 /* RepositoryTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA866D072CF0EC90007F739D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF539A2CEAB8E0000158D1 /* GitHubAPI.swift */,
+				FA778E732CECC731002A7BB1 /* Item.swift */,
+				FA778E752CECC741002A7BB1 /* Owner.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA866D082CF0ECA9007F739D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA778E6F2CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift */,
+				FA778E822CECF1D7002A7BB1 /* RepositoryCellDelegate.swift */,
+				FA778E6D2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FA866D092CF0ECF3007F739D /* Pull Request */ = {
+			isa = PBXGroup;
+			children = (
+				FA778E6C2CEBAEB2002A7BB1 /* Protocols */,
+				FAAF53972CEAB864000158D1 /* Model */,
+				FAAF53992CEAB898000158D1 /* View */,
+			);
+			path = "Pull Request";
+			sourceTree = "<group>";
+		};
+		FA866D0A2CF0ED2A007F739D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA866D0B2CF0ED8E007F739D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA866D142CF0EFE1007F739D /* PullRequestNetworkService.swift */,
+				FA866D132CF0EFCA007F739D /* Protcols */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FA866D0C2CF0ED96007F739D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				FA866D0D2CF0EDA2007F739D /* GitHubError.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		FA866D132CF0EFCA007F739D /* Protcols */ = {
+			isa = PBXGroup;
+			children = (
+				FA866D0F2CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift */,
+				FA866D022CF0BA81007F739D /* RepositoryNetworkService.swift */,
+			);
+			path = Protcols;
 			sourceTree = "<group>";
 		};
 		FAAF535B2CEAB70F000158D1 = {
@@ -153,10 +247,11 @@
 			children = (
 				FAAF53672CEAB70F000158D1 /* AppDelegate.swift */,
 				FAAF53692CEAB70F000158D1 /* SceneDelegate.swift */,
-				FAAF53992CEAB898000158D1 /* View */,
+				FA866D042CF0EC4D007F739D /* Repository */,
 				FAAF53982CEAB884000158D1 /* ViewModel */,
-				FAAF53972CEAB864000158D1 /* Model */,
-				FA778E6C2CEBAEB2002A7BB1 /* Protocolos */,
+				FA866D092CF0ECF3007F739D /* Pull Request */,
+				FA866D0B2CF0ED8E007F739D /* Service */,
+				FA866D0C2CF0ED96007F739D /* Enum */,
 				FAAF53702CEAB710000158D1 /* Assets.xcassets */,
 				FAAF53752CEAB710000158D1 /* Info.plist */,
 				FAAF53722CEAB710000158D1 /* LaunchScreen.storyboard */,
@@ -184,10 +279,8 @@
 		FAAF53972CEAB864000158D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FAAF539A2CEAB8E0000158D1 /* GitHubAPI.swift */,
-				FA778E732CECC731002A7BB1 /* Item.swift */,
-				FA778E752CECC741002A7BB1 /* Owner.swift */,
 				FAAF539C2CEB743D000158D1 /* PullRequest.swift */,
+				FA866D112CF0EE9D007F739D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,7 +297,6 @@
 		FAAF53992CEAB898000158D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAAF536B2CEAB70F000158D1 /* RepositoriesViewController.swift */,
 				FA778E7B2CECE8D7002A7BB1 /* PullRequestsViewController.swift */,
 				FA778E7D2CECE8DE002A7BB1 /* Cell */,
 			);
@@ -351,11 +443,14 @@
 				FA778E7A2CECE765002A7BB1 /* PullRequestTableViewCell.swift in Sources */,
 				FA778E6E2CEBAEDB002A7BB1 /* RepositoryTableViewDelegate.swift in Sources */,
 				FA778E832CECF1D7002A7BB1 /* RepositoryCellDelegate.swift in Sources */,
+				FA866D0E2CF0EDA2007F739D /* GitHubError.swift in Sources */,
 				FAAF536C2CEAB70F000158D1 /* RepositoriesViewController.swift in Sources */,
-				FA866D032CF0BA81007F739D /* RepositoryData.swift in Sources */,
+				FA866D032CF0BA81007F739D /* RepositoryNetworkService.swift in Sources */,
 				FAAF53682CEAB70F000158D1 /* AppDelegate.swift in Sources */,
 				FA778E812CECEACE002A7BB1 /* PullRequestTableViewDelegate.swift in Sources */,
 				FA778E7F2CECE981002A7BB1 /* PullRequestTableViewDataSource.swift in Sources */,
+				FA866D102CF0EE71007F739D /* PullRequestNetworkServiceProtocol.swift in Sources */,
+				FA866D152CF0EFE1007F739D /* PullRequestNetworkService.swift in Sources */,
 				FAAF536A2CEAB70F000158D1 /* SceneDelegate.swift in Sources */,
 				FA778E702CEBAFDE002A7BB1 /* RepositoryTableViewDataSource.swift in Sources */,
 				FA778E722CEBB838002A7BB1 /* RepositoryViewModel.swift in Sources */,
@@ -365,6 +460,7 @@
 				FAAF539D2CEB743D000158D1 /* PullRequest.swift in Sources */,
 				FA778E7C2CECE8D7002A7BB1 /* PullRequestsViewController.swift in Sources */,
 				FAAF539B2CEAB8E0000158D1 /* GitHubAPI.swift in Sources */,
+				FA866D122CF0EE9D007F739D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

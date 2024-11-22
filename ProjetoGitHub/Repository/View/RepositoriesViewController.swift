@@ -8,10 +8,22 @@ import UIKit
 
 class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
+    let pullRequestViewModel: PullRequestViewModel
+    
     func didSelectRepository(item: Item) {
-        let pullRequestsViewController = PullRequestsViewController(item: item)
+        let pullRequestsViewController = PullRequestsViewController(item: item, pullRequestViewModel: pullRequestViewModel)
         navigationController?.pushViewController(pullRequestsViewController, animated: true)
         
+    }
+    
+    init(pullRequestViewModel: PullRequestViewModel) {
+        self.pullRequestViewModel = pullRequestViewModel
+        super.init(nibName: nil, bundle: nil)
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -139,7 +151,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
 }
 
 
-@available(iOS 17.0, *)
-#Preview {
-    return RepositoriesViewController()
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    return RepositoriesViewController()
+//}
