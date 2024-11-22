@@ -26,7 +26,6 @@ class RepositoryTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let gitHubAPI = gitHubAPI {
             let selectedRepository = gitHubAPI.items[indexPath.row]
-            let pullRequestsViewController = PullRequestsViewController(item: selectedRepository)
             repositoryCellDelegate?.didSelectRepository(item: selectedRepository)
         }
         
@@ -34,6 +33,5 @@ class RepositoryTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
 
-    
 
 }

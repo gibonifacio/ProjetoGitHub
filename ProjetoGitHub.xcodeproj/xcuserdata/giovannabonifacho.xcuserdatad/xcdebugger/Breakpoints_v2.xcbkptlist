@@ -3,4 +3,149 @@
    uuid = "1A11756A-A639-4BA7-B805-8838D9CD2145"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F3CDD7D-BC5F-4E30-AA47-787A60E75272"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjetoGitHub/Service/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "fetchData(urlString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F5278B0-4774-441D-8B77-32DDF1C1AA2B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjetoGitHub/Repository/View/RepositoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "fetchRepositoryData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "946E3013-52BC-4FD3-9432-50C6E8EB4FBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjetoGitHub/Repository/View/RepositoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "fetchRepositoryData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "946E3013-52BC-4FD3-9432-50C6E8EB4FBB - d698c0d9ca823aab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ProjetoGitHub.RepositoriesViewController.fetchRepositoryData() async -&gt; ()"
+                  moduleName = "ProjetoGitHub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannabonifacho/academy/Carrer%20Fair/ProjetoGitHub/ProjetoGitHub/Repository/View/RepositoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+               <Location
+                  uuid = "946E3013-52BC-4FD3-9432-50C6E8EB4FBB - d698c0d9ca823a74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ProjetoGitHub.RepositoriesViewController.fetchRepositoryData() async -&gt; ()"
+                  moduleName = "ProjetoGitHub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannabonifacho/academy/Carrer%20Fair/ProjetoGitHub/ProjetoGitHub/Repository/View/RepositoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "1144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2A202E3-6BE7-424B-A1A5-55813B42C070"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjetoGitHubTests/RepositoryManagerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "testFetchRepositoryData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C2A202E3-6BE7-424B-A1A5-55813B42C070 - 923b5fa3cc6192b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ProjetoGitHubTests.RepositoryManagerTests.testFetchRepositoryData() async -&gt; ()"
+                  moduleName = "ProjetoGitHubTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannabonifacho/academy/Carrer%20Fair/ProjetoGitHub/ProjetoGitHubTests/RepositoryManagerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "C2A202E3-6BE7-424B-A1A5-55813B42C070 - 480d4f21699b56b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ProjetoGitHubTests.RepositoryManagerTests.testFetchRepositoryData() async -&gt; ()"
+                  moduleName = "ProjetoGitHubTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannabonifacho/academy/Carrer%20Fair/ProjetoGitHub/ProjetoGitHubTests/RepositoryManagerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "C2A202E3-6BE7-424B-A1A5-55813B42C070 - 250a4761db2fb4b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ProjetoGitHubTests.RepositoryManagerTests.testFetchRepositoryData() async -&gt; ()"
+                  moduleName = "ProjetoGitHubTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannabonifacho/academy/Carrer%20Fair/ProjetoGitHub/ProjetoGitHubTests/RepositoryManagerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "444">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

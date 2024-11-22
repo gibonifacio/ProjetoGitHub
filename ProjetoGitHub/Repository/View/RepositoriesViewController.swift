@@ -8,10 +8,23 @@ import UIKit
 
 class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
+    let pullRequestViewModel: PullRequestViewModel
+    
     func didSelectRepository(item: Item) {
-        let pullRequestsViewController = PullRequestsViewController(item: item)
+        let pullRequestsViewController = PullRequestsViewController(item: item, pullRequestViewModel: pullRequestViewModel)
         navigationController?.pushViewController(pullRequestsViewController, animated: true)
         
+    }
+    
+    init(pullRequestViewModel: PullRequestViewModel, repositoryViewModel: RepositoryViewModel) {
+        self.pullRequestViewModel = pullRequestViewModel
+        self.repositoryViewModel = repositoryViewModel
+        super.init(nibName: nil, bundle: nil)
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -25,7 +38,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
     var tableViewDelegate: RepositoryTableViewDelegate?
     var tableViewDataSource: RepositoryTableViewDataSource?
-    var repositoryViewModel: RepositoryViewModel = RepositoryViewModel()
+    var repositoryViewModel: RepositoryViewModel
     
     var gitHubAPI: GitHubAPI?
     
@@ -74,7 +87,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
     
     func fetchRepositoryData() async {
         do {
-            let data = try await repositoryViewModel.getRepositoryData()
+            let data = try await repositoryViewModel.getRepositoriesData()
             DispatchQueue.main.async {
                 self.gitHubAPI = data
                 self.tableView.reloadData()
@@ -90,13 +103,17 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
                 
             }
             
+        } catch GitHubError.invalidURL {
+            self.label.text = "Invalid URL"
+            print("Error type url")
+        } catch GitHubError.invalidResponse {
+            self.label.text = "Invalid Response"
+            print("Error type response")
         } catch GitHubError.invalidData {
             print("Error type data")
-        } catch GitHubError.invalidResponse {
-            print("Error type response")
-        } catch GitHubError.invalidURL {
-            print("Error type url")
+            self.label.text = "Invalid data"
         } catch {
+            self.label.text = "Unknown Error"
             print(error.localizedDescription)
         }
         
@@ -139,7 +156,7 @@ class RepositoriesViewController: UIViewController, RepositoryCellDelegate{
 }
 
 
-@available(iOS 17.0, *)
-#Preview {
-    return RepositoriesViewController()
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//    return RepositoriesViewController()
+//}
