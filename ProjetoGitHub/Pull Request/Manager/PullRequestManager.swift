@@ -20,13 +20,19 @@ class PullRequestManager {
         let urlString = "https://api.github.com/repos/\(item.owner.login)/\(item.name)/pulls"
         
         do {
-            let decoder = JSONDecoder()
-            let decode = try await decoder.decode([PullRequest].self, from: pullResquestNetworkSerice.fetchData(urlString: urlString))
-            print(decode)
-            return decode
+            let data = try await pullResquestNetworkSerice.fetchData(urlString: urlString)
+            do {
+                let decoder = JSONDecoder()
+                let decode = try  decoder.decode([PullRequest].self, from: data)
+                print(decode)
+                return decode
+            } catch {
+                print(error.localizedDescription)
+                throw GitHubError.invalidData
+            }
         } catch {
-            print(error.localizedDescription)
-            throw GitHubError.invalidData
+            throw GitHubError.invalidURL
+
         }
 
     }
